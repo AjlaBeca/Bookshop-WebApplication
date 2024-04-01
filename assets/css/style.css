@@ -1086,7 +1086,7 @@ fieldset[disabled] a.btn {
 }
 
 .btn.btn-accent {
-  color: #C5A992;
+  color: #c5a992;
   background-color: var(--accent-color);
 }
 
@@ -1160,22 +1160,27 @@ fieldset[disabled] a.btn {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out;
 }
-
+/*
 @media (prefers-reduced-motion: reduce) {
   .nav-link {
     transition: none;
   }
 }
-
+*/
 .nav-link:hover,
-.nav-link:focus {
-  color: var(--accent-color);
+.nav-link:focus,
+.nav-link.active{
+  color: var(--accent-color) !important;
 }
 
 .nav-link.disabled {
   color: #6c757d;
   pointer-events: none;
   cursor: default;
+}
+
+.nav-link.active{
+  color: var(--accent-color);
 }
 
 .nav-tabs {
@@ -1873,7 +1878,7 @@ img.post-image {
   width: 35%;
   margin-top: 60px;
   margin-right: 175px;
-  align-items: centers;
+  align-items: center;
 }
 
 .banner-content h2.banner-title {
