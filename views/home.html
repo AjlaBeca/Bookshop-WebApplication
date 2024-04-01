@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="assets/js/plugin.js" defer></script>
+    <script src="assets/js/home.js" defer></script>
+    <style>
+      .slider-item {
+        display: flex;
+        align-items: center;
+      }
+      .banner-content {
+        flex: 1;
+        padding-right: 20px; /* Adjust spacing */
+      }
+      .banner-image {
+        width: 30%; /* Resize book image */
+        margin-left: 20px; /* Adjust spacing */
+      }
+      .products-thumb img {
+        width: 100%; /* Adjust image width */
+        height: auto; /* Maintain aspect ratio */
+      }
+      .products-content {
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .item-description {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="billboard">
+      <div class="container">
+        <div class="row" style="align-items: center">
+          <div class="col-md-12 col-sm-8">
+            <button class="prev slick-arrow">
+              <i class="icon icon-arrow-left"></i>
+            </button>
+
+            <div class="main-slider" style="align-items: center">
+              <!-- Slider items will be dynamically added here -->
+            </div>
+
+            <button class="next slick-arrow">
+              <i class="icon icon-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="best-selling">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="row">
+              <div class="col-md-6 col-6">
+                <figure class="products-thumb">
+                  <img src="" alt="book" class="single-image" />
+                </figure>
+              </div>
+
+              <div class="col-md-6">
+                <div class="product-entry">
+                  <h2 class="section-title divider">Best Selling Book</h2>
+
+                  <div class="content">
+                    <div class="author-name"></div>
+                    <h3 class="item-title"></h3>
+                    <p class="item-description"></p>
+                    <div class="item-price"></div>
+                    <div class="btn-wrap">
+                      <a href="#book" class="btn-accent-arrow"
+                        >See it now <i class="icon icon-ns-arrow-right"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
