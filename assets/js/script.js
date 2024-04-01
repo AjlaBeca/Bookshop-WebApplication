@@ -1,59 +1,93 @@
 (function ($) {
   "use strict";
 
-  const tabs = document.querySelectorAll("[data-tab-target]");
-  const tabContents = document.querySelectorAll("[data-tab-content]");
-
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      const target = document.querySelector(tab.dataset.tabTarget);
-      tabContents.forEach((tabContent) => {
-        tabContent.classList.remove("active");
-      });
-      tabs.forEach((tab) => {
-        tab.classList.remove("active");
-      });
-      tab.classList.add("active");
-      target.classList.add("active");
-    });
-  });
-
-  // Responsive Navigation with Button
-
-  const hamburger = document.querySelector(".hamburger");
-  const navMenu = document.querySelector(".menu-list");
-
-  hamburger.addEventListener("click", mobileMenu);
-
-  function mobileMenu() {
-    hamburger.classList.toggle("active");
-    navMenu.classList.toggle("responsive");
-  }
-
-  const navLink = document.querySelectorAll(".nav-link");
-
-  navLink.forEach((n) => n.addEventListener("click", closeMenu));
-
-  function closeMenu() {
-    hamburger.classList.remove("active");
-    navMenu.classList.remove("responsive");
-  }
-
-  var initScrollNav = function () {
-    var scroll = $(window).scrollTop();
-
-    if (scroll >= 200) {
-      $("#header").addClass("fixed-top");
-    } else {
-      $("#header").removeClass("fixed-top");
-    }
-  };
-
-  $(window).scroll(function () {
-    initScrollNav();
-  });
-
   $(document).ready(function () {
+
+    /*
+    const tabs = document.querySelectorAll("[data-tab-target]");
+    const tabContents = document.querySelectorAll("[data-tab-content]");
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const target = document.querySelector(tab.dataset.tabTarget);
+        tabContents.forEach((tabContent) => {
+          tabContent.classList.remove("active");
+        });
+        tabs.forEach((tab) => {
+          tab.classList.remove("active");
+        });
+        tab.classList.add("active");
+        target.classList.add("active");
+      });
+    });
+
+    // Add functionality for switching between "Sign Up" and "Log In" sections
+    const signInLink = document.querySelector("#sign-in-link");
+    const signUpLink = document.querySelector("#sign-up-link");
+    const signInSection = document.getElementById("nav-sign-in");
+    const signUpSection = document.getElementById("nav-register");
+
+    signInLink.addEventListener("click", () => {
+      signInSection.classList.add("show", "active");
+      signUpSection.classList.remove("show", "active");
+    });
+
+    signUpLink.addEventListener("click", () => {
+      signUpSection.classList.add("show", "active");
+      signInSection.classList.remove("show", "active");
+    });*/
+
+    function updateActiveNavLink() {
+        // Get the id of the currently visible section
+        var activeSectionId = $('#spapp > section:visible').attr('id');
+
+        // Remove active class from all nav links
+        $('.nav-link').removeClass('active');
+
+        // Add active class to the nav link corresponding to the active section
+        $('.nav-link[href="#' + activeSectionId + '"]').addClass('active');
+    }
+
+    // Update active state of nav links whenever a new section is loaded
+    $('#spapp > section').on('load', updateActiveNavLink);
+
+    // Update active state of nav links on page load
+    updateActiveNavLink();
+    // Responsive Navigation with Button
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".menu-list");
+
+    hamburger.addEventListener("click", mobileMenu);
+
+    function mobileMenu() {
+      hamburger.classList.toggle("active");
+      navMenu.classList.toggle("responsive");
+    }
+
+    const navLink = document.querySelectorAll(".nav-link");
+
+    navLink.forEach((n) => n.addEventListener("click", closeMenu));
+
+    function closeMenu() {
+      hamburger.classList.remove("active");
+      navMenu.classList.remove("responsive");
+    }
+
+    var initScrollNav = function () {
+      var scroll = $(window).scrollTop();
+
+      if (scroll >= 200) {
+        $("#header").addClass("fixed-top");
+      } else {
+        $("#header").removeClass("fixed-top");
+      }
+    };
+    var windowElement = $(window)[0];
+
+    windowElement.addEventListener('scroll', function() {
+      initScrollNav();
+    }, { passive: true });
+
     initScrollNav();
 
     Chocolat(document.querySelectorAll(".image-link"), {
@@ -80,15 +114,6 @@
         $(".search-toggle").removeClass("active");
         $("#header-wrap").removeClass("show");
       }
-    });
-
-    $(".main-slider").slick({
-      autoplay: false,
-      autoplaySpeed: 4000,
-      fade: true,
-      dots: true,
-      prevArrow: $(".prev"),
-      nextArrow: $(".next"),
     });
 
     $(".product-grid").slick({
@@ -120,11 +145,21 @@
             slidesToScroll: 1,
           },
         },
-        // You can unslick at a given breakpoint now by adding:
-        // settings: "unslick"
-        // instead of a settings object
       ],
     });
+
+    //search functionality, if i put in isbn it will redirect me to the book page with that isbn :))
+
+    $('.search-box').on('submit', function(e) {
+      e.preventDefault(); // Prevent default form submission
+
+      // Get the entered ISBN from the search input field
+      var isbn = $('.search-input').val();
+
+      // Construct the URL with the ISBN and navigate to it
+      var url = '#book?isbn=' + isbn;
+      window.location.href = url;
+  });
 
     AOS.init({
       duration: 1200,
@@ -134,7 +169,7 @@
     jQuery(".stellarnav").stellarNav({
       theme: "plain",
       closingDelay: 250,
-      // mobileMode: false,
+      mobileMode: false,
     });
-  }); // End of a document
+  }); 
 })(jQuery);
