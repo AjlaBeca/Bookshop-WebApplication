@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="book">
+      <section class="padding-medium text-center">
+        <div class="container">
+          <div class="row justify-content-center align-items-center">
+            <div class="col-md-5">
+              <a href="#" class="product-image col-3"
+                ><img id="bookImage" src=""
+              /></a>
+            </div>
+
+            <div class="col-md-7 col-12 pl-5">
+              <div class="product-detail">
+                <span id="bookGenre"></span>
+                <h1 id="bookTitle"></h1>
+                <div class="author-name" id="bookAuthor"></div> <br>
+                <span class="price colored fs-4" id="bookPrice"></span>
+                <!-- Book price will be populated dynamically -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Book content here -->
+    </div>
+
+    <section class="product-tabs mt-5">
+      <div class="container">
+        <div class="tabs-listing">
+          <nav>
+            <div
+              class="nav nav-tabs d-flex justify-content-center"
+              id="nav-tab"
+              role="tablist"
+            >
+              <button
+                class="nav-link active text-uppercase px-5 py-3"
+                id="nav-home-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#nav-home"
+                type="button"
+                role="tab"
+                aria-controls="nav-home"
+                aria-selected="true"
+              >
+                Description
+              </button>
+              <button
+                class="nav-link text-uppercase px-5 py-3"
+                id="nav-information-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#nav-information"
+                type="button"
+                role="tab"
+                aria-controls="nav-information"
+                aria-selected="false"
+                tabindex="-1"
+              >
+                Additional information
+              </button>
+            </div>
+          </nav>
+          <div class="tab-content py-5" id="nav-tabContent">
+            <div
+              class="tab-pane fade show active"
+              id="nav-home"
+              role="tabpanel"
+              aria-labelledby="nav-home-tab"
+            >
+              <div id="description">
+                <!-- Book description will be populated dynamically -->
+              </div>
+            </div>
+            <div
+              class="tab-pane fade show"
+              id="nav-information"
+              role="tabpanel"
+              aria-labelledby="nav-information-tab"
+            >
+              <div id="bookDetailsContainer">
+                Additional book information will be populated dynamically
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="assets/js/book.js"></script>
+  </body>
+</html>
