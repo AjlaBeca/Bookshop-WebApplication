@@ -13,9 +13,9 @@ class UserService {
         return $this->user_dao->fetchAll();
     }
 
-    public function addUser($name, $surname, $email, $password) {
-        // Add validation or other logic here if needed
-        $this->user_dao->addUser($name, $surname, $email, $password);
-    }
+public function addUser($name, $surname, $email, $password) {
+    // Add validation or other logic here if needed
+    return $this->user_dao->addUser($name, $surname, $email, $password);
+}
 }
 ?>

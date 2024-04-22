@@ -55,12 +55,22 @@ class BaseDao {
         return $this->query($query, []);
     }
 
+    public function getUsers() {
+        // Query to fetch all publishers from the database
+        $query = "SELECT DISTINCT u.*
+                  FROM user u";
+
+        // Execute the query and return the result
+        return $this->query($query, []);
+    }
+
+
     protected function query($query, $params) {
         //echo "SQL Query: $query"; // Log the SQL query
         $statement = $this->connection->prepare($query);
         $statement->execute($params);
         return $statement->fetchAll(PDO::FETCH_ASSOC);
-    }
+    } 
 
 
     /*

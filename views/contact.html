@@ -1,158 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      .mapouter {
-        position: relative;
-        text-align: right;
-        height: 500px;
-        width: 100%;
-      }
-      .gmap_canvas {
-        overflow: hidden;
-        background: none !important;
-        height: 500px;
-        width: 100%;
-      }
-    </style>
-  </head>
-  <body>
-    <section class="contact-information padding-medium mt-3">
-      <div class="container">
-        <div class="row g-5">
-          <div class="col-md-6 mb-3">
-            <h2>Get in Touch</h2>
 
-            <div class="contact-detail d-flex flex-wrap mt-4">
-              <div class="detail mr-6 mb-4">
-                <p>
-                  Thank you for your interest in reaching out to us! We value
-                  your feedback, inquiries, and suggestions. Whether you have a
-                  question about our book selection, need assistance with an
-                  order, or simply want to say hello, we're here to help.
-                </p>
-                <ul class="list-unstyled list-icon">
-                  <li><i class="icon icon-phone"></i>+387 61283806</li>
-                  <li>
-                    <i class="icon icon-envelope-o"></i
-                    ><a href="mailto:wordweaver@gmail.com"
-                      >wordweaver@gmail.com</a
-                    >
-                  </li>
-                  <li>
-                    <i class="icon icon-location2"></i>Sarajevo 71000, Bosna i
-                    Hercegovina
-                  </li>
-                </ul>
-              </div>
-              <!--detail-->
-              <div class="detail mb-4">
-                <h3>Social Links</h3>
-                <div class="social-links flex-container">
-                  <a href="#" class="icon icon-facebook"></a>
-                  <a href="#" class="icon icon-twitter"></a>
-                  <a href="#" class="icon icon-pinterest-p"></a>
-                  <a href="#" class="icon icon-youtube"></a>
-                  <a href="#" class="icon icon-linkedin"></a>
-                </div>
-                <!--social-links-->
-              </div>
-              <!--detail-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .mapouter {
+      position: relative;
+      text-align: right;
+      height: 500px;
+      width: 100%;
+    }
+
+    .gmap_canvas {
+      overflow: hidden;
+      background: none !important;
+      height: 500px;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="contact-information padding-medium mt-3">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-md-6 mb-3">
+          <h2>Get in Touch</h2>
+
+          <div class="contact-detail d-flex flex-wrap mt-4">
+            <div class="detail mr-6 mb-4">
+              <p>
+                Thank you for your interest in reaching out to us! We value
+                your feedback, inquiries, and suggestions. Whether you have a
+                question about our book selection, need assistance with an
+                order, or simply want to say hello, we're here to help.
+              </p>
+              <ul class="list-unstyled list-icon">
+                <li><i class="icon icon-phone"></i>+387 61 283 806</li>
+                <li>
+                  <i class="icon icon-envelope-o"></i><a href="mailto:wordweaver@gmail.com">wordweaver@gmail.com</a>
+                </li>
+                <li>
+                  <i class="icon icon-location2"></i>Sarajevo 71000, Bosna i
+                  Hercegovina
+                </li>
+              </ul>
             </div>
-            <!--contact-detail-->
+            <!--detail-->
+            <div class="detail mb-4">
+              <h3>Social Links</h3>
+              <div class="social-links flex-container">
+                <a href="#" class="icon icon-facebook"></a>
+                <a href="#" class="icon icon-twitter"></a>
+                <a href="#" class="icon icon-pinterest-p"></a>
+                <a href="#" class="icon icon-youtube"></a>
+                <a href="#" class="icon icon-linkedin"></a>
+              </div>
+              <!--social-links-->
+            </div>
+            <!--detail-->
           </div>
-          <!--col-md-6-->
+          <!--contact-detail-->
+        </div>
+        <!--col-md-6-->
 
-          <div class="col-md-6">
-            <div class="contact-information">
-              <h2>Send A Message</h2>
-              <form
-                name="contactform"
-                action="contact.php"
-                method="post"
-                class="form-group contact-form mt-4"
-              >
-                <div class="row">
-                  <div class="col-md-6">
-                    <input
-                      type="text"
-                      minlength="2"
-                      name="name"
-                      placeholder="Name"
-                      class="form-control"
-                      required=""
-                    />
-                  </div>
-                  <div class="col-md-6">
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="E-mail"
-                      class="form-control"
-                      required=""
-                    />
-                  </div>
+        <div class="col-md-6">
+          <div class="contact-information">
+            <h2>Send A Message</h2>
+            <form id="contactform" class="form-group contact-form mt-4">
+              <div class="row">
+                <div class="col-md-6">
+                  <input type="text" minlength="2" id="name" placeholder="Name" class="form-control" required="" />
                 </div>
-
-                <div class="row">
-                  <div class="col-md-12">
-                    <textarea
-                      class="form-control"
-                      name="message"
-                      placeholder="Message"
-                      style="height: 150px"
-                      required=""
-                    ></textarea>
-                  </div>
-                  <div class="col-md-12">
-                    <label>
-                      <input type="checkbox" required="" />
-                      <span class="label-body"
-                        >I agree with <a href="#">terms and conditions</a></span
-                      >
-                    </label>
-
-                    <button
-                      type="submit"
-                      name="submit"
-                      class="btn btn-primary btn-common btn-rounded w-100"
-                    >
-                      Submit
-                    </button>
-                  </div>
+                <div class="col-md-6">
+                  <input type="email" id="email" placeholder="E-mail" class="form-control" required="" />
                 </div>
-              </form>
-            </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <textarea class="form-control" id="body" placeholder="Message" style="height: 150px"
+                    required=""></textarea>
+                </div>
+                <div class="col-md-12">
+                  <label>
+                    <input type="checkbox" required="" />
+                    <span class="label-body">I agree with <a href="#">terms and conditions</a></span>
+                  </label>
+
+                  <button type="button" id="submit" class="btn btn-primary btn-common btn-rounded w-100">Submit</button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="google-map">
-      <div class="mapouter">
-        <div class="gmap_canvas">
-          <iframe
-            width="100%"
-            height="500"
-            id="gmap_canvas"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2878.7941983690303!2d18.30948971263564!3d43.81862807097427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4758ca0f99d6bf3b%3A0x6f97362d8c61c461!2sInternational%20Burch%20University!5e0!3m2!1shr!2sba!4v1710109440272!5m2!1shr!2sba"
-            width="600"
-            height="450"
-            style="border: 0"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            frameborder="0"
-            scrolling="no"
-            marginheight="0"
-            marginwidth="0"
-          ></iframe>
-          <br>
-        </div>
+  <section class="google-map">
+    <div class="mapouter">
+      <div class="gmap_canvas">
+        <iframe width="100%" height="500" id="gmap_canvas"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2878.7941983690303!2d18.30948971263564!3d43.81862807097427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4758ca0f99d6bf3b%3A0x6f97362d8c61c461!2sInternational%20Burch%20University!5e0!3m2!1shr!2sba!4v1710109440272!5m2!1shr!2sba"
+          width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade" frameborder="0" scrolling="no" marginheight="0"
+          marginwidth="0"></iframe>
+        <br>
       </div>
-    </section>
-  </body>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById('submit').addEventListener('click', function () {
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      var body = document.getElementById('body').value;
+      window.location.href = `mailto:wordweaver@gmail.com?subject=Message from ${name} &body=User (${email}) sends a message: %0D%0A  ${body}`;
+    });
+  </script>
+</body>
+
 </html>

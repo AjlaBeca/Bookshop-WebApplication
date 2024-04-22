@@ -3,7 +3,7 @@
 
   $(document).ready(function () {
 
-    /*
+    
     const tabs = document.querySelectorAll("[data-tab-target]");
     const tabContents = document.querySelectorAll("[data-tab-content]");
 
@@ -22,20 +22,11 @@
     });
 
     // Add functionality for switching between "Sign Up" and "Log In" sections
-    const signInLink = document.querySelector("#sign-in-link");
-    const signUpLink = document.querySelector("#sign-up-link");
-    const signInSection = document.getElementById("nav-sign-in");
-    const signUpSection = document.getElementById("nav-register");
+    // Add functionality for switching between "Sign Up" and "Log In" sections
 
-    signInLink.addEventListener("click", () => {
-      signInSection.classList.add("show", "active");
-      signUpSection.classList.remove("show", "active");
-    });
+  
 
-    signUpLink.addEventListener("click", () => {
-      signUpSection.classList.add("show", "active");
-      signInSection.classList.remove("show", "active");
-    });*/
+
 
     function updateActiveNavLink() {
         // Get the id of the currently visible section
