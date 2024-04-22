@@ -53,6 +53,7 @@
 
     // Update active state of nav links on page load
     updateActiveNavLink();
+
     // Responsive Navigation with Button
     const hamburger = document.querySelector(".hamburger");
     const navMenu = document.querySelector(".menu-list");
@@ -172,4 +173,7 @@
       mobileMode: false,
     });
   }); 
+
+
+  
 })(jQuery);
