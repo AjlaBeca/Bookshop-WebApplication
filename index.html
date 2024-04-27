@@ -25,6 +25,7 @@
 
     <!--<script src="assets/js/jquery.min.js"></script>-->
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="assets/js/plugin.js" defer></script>
     <!--IMPORTANT-->
   </head>
@@ -173,16 +174,16 @@
               <h5>About Us</h5>
               <ul class="menu-list">
                 <li class="menu-item">
-                  <a href="#">About us</a>
+                  <a href="#contact">About us</a>
                 </li>
                 <li class="menu-item">
-                  <a href="#">Cookie Policy</a>
+                  <a href="#contact">Cookie Policy</a>
                 </li>
                 <li class="menu-item">
-                  <a href="#">Privacy Notice</a>
+                  <a href="#contact">Privacy Notice</a>
                 </li>
                 <li class="menu-item">
-                  <a href="#">Terms and Conditions</a>
+                  <a href="#contact">Terms and Conditions</a>
                 </li>
               </ul>
             </div>
@@ -224,13 +225,13 @@
               <h5>Help</h5>
               <ul class="menu-list">
                 <li class="menu-item">
-                  <a href="#">Help center</a>
+                  <a href="#contact">Help center</a>
                 </li>
                 <li class="menu-item">
-                  <a href="#">Report a problem</a>
+                  <a href="#contact">Report a problem</a>
                 </li>
                 <li class="menu-item">
-                  <a href="#">Suggesting edits</a>
+                  <a href="#contact">Suggesting edits</a>
                 </li>
                 <li class="menu-item">
                   <a href="#contact">Contact us</a>
@@ -253,12 +254,14 @@
       </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
 
-    <script src="assets/js/jquery.spapp.min.js" defer></script>
+    <script src="assets/js/jquery.spapp.min.js"></script>
     <script src="assets/js/script.js" defer></script>
     <!--IMPORTANT-->
-    <script src="assets/js/spapp.js" defer></script>
-    <script src="assets/js/ajax.js" defer></script>
+    <!--<script src="assets/js/spapp.js" defer></script>-->
+    <script src="assets/utils/utils.js"></script>
+    <script> Utils.init_spapp();</script>
+    <script src="services/ajax.js" defer></script>
   </body>
 </html>
