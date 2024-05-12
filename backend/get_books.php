@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin: *");
 // Include the BookService class
 require_once __DIR__ . "/rest/services/BookService.class.php";
 

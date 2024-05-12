@@ -9,7 +9,7 @@ class PublisherService {
     }
 
     public function fetchAll() {
-        return $this->publisher_dao->fetchAll();
+        return $this->publisher_dao->getPublishers();
     }
 }
 ?>

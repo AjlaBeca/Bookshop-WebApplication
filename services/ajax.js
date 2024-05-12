@@ -2,11 +2,11 @@ var currentPage = window.location.hash.substring(1); // Remove the "#" from the 
 
 function loadBooks() {
     // Clear the books container
-    $('#booksContainer').empty();
+    //$('#booksContainer').empty();
 
     // Get the page identifier from the URL hash
     var currentPage = window.location.hash.substring(1); // Remove the "#" from the hash
-
+    console.log(currentPage);
     // Load data from the database
     if (currentPage !== "book") {
         $.ajax({

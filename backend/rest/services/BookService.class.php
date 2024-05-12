@@ -9,7 +9,7 @@ class BookService {
     }
 
     public function fetchAll() {
-        return $this->book_dao->fetchAll();
+        return $this->book_dao->getAll();
     }
 }
 ?>

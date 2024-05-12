@@ -10,7 +10,7 @@ class UserService {
 
     public function fetchAll() {
         // You can implement this method if needed
-        return $this->user_dao->fetchAll();
+        return $this->user_dao->getUsers();
     }
 
 public function addUser($name, $surname, $email, $password) {

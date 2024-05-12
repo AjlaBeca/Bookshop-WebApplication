@@ -6,10 +6,6 @@ class UserDao extends BaseDao {
         parent::__construct("user");
     }
 
-    public function fetchAll() {
-        // You can implement this method if needed
-        return $this->getUsers();
-    }
 
 public function addUser($name, $surname, $email, $password) {
     try {
@@ -60,12 +56,23 @@ public function addUser($name, $surname, $email, $password) {
     
     
     
-    
+    public function getUsers() {
+        // Query to fetch all publishers from the database
+        $query = "SELECT DISTINCT u.*
+                  FROM user u";
 
+        // Execute the query and return the result
+        return $this->query($query, []);
+    }
+
+    
+/*
     public function getUsers() {
         // Query to fetch all users from the database
         $query = "SELECT * FROM user";
         return $this->query($query, []);
     }
+
+    */
 }
 ?>
