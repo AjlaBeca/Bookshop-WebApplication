@@ -1,7 +1,7 @@
 $(document).ready(function () {
   // Fetch book data from the backend and populate the slider
   $.ajax({
-      url: "backend/get_books.php", // Endpoint for fetching books
+      url: "backend/books", // Endpoint for fetching books
       dataType: "json",
       success: function (data) {
           var mainSlider = $(".main-slider");

@@ -1,7 +1,7 @@
 
 <?php
 
-require_once __DIR__ ."/../../config.php";
+require_once __DIR__ ."/../config.php";
 
 class BaseDao {
     protected $connection;
@@ -30,6 +30,8 @@ class BaseDao {
           LEFT JOIN BookTag bt ON b.BookID = bt.BookID
           LEFT JOIN tag t ON bt.TagID = t.TagID
           LEFT JOIN Author a ON b.AuthorID = a.AuthorID
+          LEFT JOIN Publisher p ON b.PublisherID = p.PublisherID
+          LEFT JOIN Genre g ON b.GenreID = g.GenreID
           GROUP BY b.BookID";
 
     
@@ -72,48 +74,4 @@ class BaseDao {
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     } 
 
-
-    /*
-    protected function query_unique($query, $params) {
-        $results = $this->query($query, $params);
-        return reset($results);
-    }
-
-    protected function execute($query, $params) {
-        $prepared_statement = $this->connection->prepare($query);
-        if ($params) {
-        foreach ($params as $key => $param) {
-            $prepared_statement->bindValue($key, $param);
-        }
-        }
-        $prepared_statement->execute();
-        return $prepared_statement;
-    }
-
-    public function insert($table, $entity) {
-        $query = "INSERT INTO {$table} (";
-        // INSERT INTO bookstore (
-        foreach ($entity as $column => $value) {
-        $query .= $column . ", ";
-        }
-        // INSERT INTO bookstore (first_name, last_name, 
-        $query = substr($query, 0, -2);
-        // INSERT INTO bookstore (first_name, last_name
-        $query .= ") VALUES (";
-        // INSERT INTO bookstore (first_name, last_name) VALUES (
-        foreach ($entity as $column => $value) {
-        $query .= ":" . $column . ", ";
-        }
-        // INSERT INTO bookstore (first_name, last_name) VALUES (:first_name, :last_name, 
-        $query = substr($query, 0, -2);
-        // INSERT INTO bookstore (first_name, last_name) VALUES (:first_name, :last_name
-        $query .= ")";
-        // INSERT INTO bookstore (first_name, last_name) VALUES (:first_name, :last_name)
-
-        $statement = $this->connection->prepare($query);
-        $statement->execute($entity); // SQL injection prevention
-        $entity['id'] = $this->connection->lastInsertId();
-        return $entity;
-    }
-    */
 }
