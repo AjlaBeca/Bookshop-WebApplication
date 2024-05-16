@@ -10,7 +10,7 @@ function loadBooks() {
     // Load data from the database
     if (currentPage !== "book") {
         $.ajax({
-            url: "backend/get_books.php", // Change to the endpoint for fetching books with tags
+            url: "backend/books", // Change to the endpoint for fetching books with tags
             dataType: "json",
             success: function (data) {
                 console.log("Data loaded from database:", data);

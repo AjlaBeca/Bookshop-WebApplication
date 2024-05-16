@@ -11,7 +11,7 @@ $(document).ready(function () {
 
       // Load JSON data for book details
       $.ajax({
-          url: "backend/get_books.php", // Change to the endpoint for fetching books
+          url: "backend/books", // Change to the endpoint for fetching books
           dataType: "json",
           success: function (data) {
               console.log("Data from database loaded");

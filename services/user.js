@@ -3,7 +3,7 @@ $(document).ready(function () {
   /*function isLoggedIn(callback) {
         $.ajax({
             type: "GET",
-            url: "backend/check_login.php",
+            url: "backend/users/login",
             success: function(response) {
                 callback(response.logged_in);
             },
@@ -31,13 +31,14 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: "backend/add_user.php",
+      url: "backend/users/add",
       data: { name: name, surname: surname, email: email, password: password },
       success: function (response) {
         console.log("Signup Response:", response);
         // Attempt to parse JSON response
         try {
-          var jsonResponse = JSON.parse(response);
+          var jsonResponse = typeof response === 'string' ? JSON.parse(response) : response;
+          //var jsonResponse = JSON.parse(response);
           if (jsonResponse.success) {
             console.log("User signed up successfully!");
             window.location.href = "#home";
@@ -64,13 +65,14 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: "backend/check_login.php",
+      url: "backend/users/login",
       data: { email: email, password: password },
       success: function (response) {
         console.log("Login Response:", response);
         // Attempt to parse JSON response
         try {
-          var jsonResponse = JSON.parse(response);
+          var jsonResponse = typeof response === 'string' ? JSON.parse(response) : response;
+          //var jsonResponse = JSON.parse(response);
           if (jsonResponse.success) {
             console.log("User logged in successfully!");
             window.location.href = "#home";

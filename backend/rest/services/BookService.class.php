@@ -8,7 +8,9 @@ class BookService {
         $this->book_dao = new BookDao();
     }
 
+    
     public function fetchAll() {
+        
         return $this->book_dao->fetchAll();
     }
 }
