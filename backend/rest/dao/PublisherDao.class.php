@@ -6,8 +6,13 @@ class PublisherDao extends BaseDao {
         parent::__construct("publisher");
     }
 
-    public function fetchAll() {
-        return $this->getPublishers();
+    public function getPublishers() {
+        // Query to fetch all publishers from the database
+        $query = "SELECT DISTINCT p.*
+                  FROM publisher p";
+
+        // Execute the query and return the result
+        return $this->query($query, []);
     }
 }
 ?>

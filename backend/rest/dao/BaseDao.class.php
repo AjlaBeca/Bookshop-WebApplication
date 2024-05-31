@@ -23,49 +23,7 @@ class BaseDao {
         }
     }
 
-    public function getAll() {
-        // Query to fetch all records from the specified table
-        $query = "SELECT b.*, GROUP_CONCAT(t.Name) AS Tags, a.Name AS Author
-          FROM book b
-          LEFT JOIN BookTag bt ON b.BookID = bt.BookID
-          LEFT JOIN tag t ON bt.TagID = t.TagID
-          LEFT JOIN Author a ON b.AuthorID = a.AuthorID
-          LEFT JOIN Publisher p ON b.PublisherID = p.PublisherID
-          LEFT JOIN Genre g ON b.GenreID = g.GenreID
-          GROUP BY b.BookID";
-
-    
-        // Execute the query and return the result
-        return $this->query($query, []);
-    }    
-    
-    public function getAuthors() {
-        // Query to fetch all authors from the database
-        $query = "SELECT DISTINCT a.*
-                  FROM author a";
-
-        // Execute the query and return the result
-        return $this->query($query, []);
-    }
-
-    public function getPublishers() {
-        // Query to fetch all publishers from the database
-        $query = "SELECT DISTINCT p.*
-                  FROM publisher p";
-
-        // Execute the query and return the result
-        return $this->query($query, []);
-    }
-
-    public function getUsers() {
-        // Query to fetch all publishers from the database
-        $query = "SELECT DISTINCT u.*
-                  FROM user u";
-
-        // Execute the query and return the result
-        return $this->query($query, []);
-    }
-
+ 
 
     protected function query($query, $params) {
         //echo "SQL Query: $query"; // Log the SQL query

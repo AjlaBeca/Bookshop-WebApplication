@@ -8,10 +8,10 @@ require_once __DIR__ . "/../services/UserService.class.php";
 // Route to handle GET request for fetching users
 Flight::route('GET /users', function(){
     // Instantiate the UserDao class
-    $userDao = new UserDao();
+    $userService = new UserService();
 
     // Fetch all users from the database
-    $users = $userDao->fetchAll();
+    $users = $userService->fetchAll();
 
     // Return the users as JSON
     Flight::json($users);

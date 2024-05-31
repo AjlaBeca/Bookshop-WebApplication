@@ -6,8 +6,14 @@ class AuthorDao extends BaseDao {
         parent::__construct("author");
     }
 
-    public function fetchAll() {
-        return $this->getAuthors();
+      
+    public function getAuthors() {
+        // Query to fetch all authors from the database
+        $query = "SELECT DISTINCT a.*
+                  FROM author a";
+
+        // Execute the query and return the result
+        return $this->query($query, []);
     }
 }
 ?>
