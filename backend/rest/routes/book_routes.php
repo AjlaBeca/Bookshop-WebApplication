@@ -8,6 +8,18 @@ ini_set('display_errors', 1);
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . "/../services/BookService.class.php";
 
+/**
+ * @OA\Get(
+ *     path="/books",
+ *     tags={"books"},
+ *     summary="Get list of books",
+ *     @OA\Response(
+ *         response=200,
+ *         description="Array of all books",
+ *     ),
+ * )
+ */
+
 Flight::route('GET /books', function(){
     // Instantiate the BookService class
     $bookService = new BookService();

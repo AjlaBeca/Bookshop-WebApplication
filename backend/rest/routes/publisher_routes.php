@@ -5,6 +5,17 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 // Include the PublisherService class
 require_once __DIR__ . "/../services/PublisherService.class.php";
 
+/**
+ * @OA\Get(
+ *     path="/publishers",
+ *     tags={"publishers"},
+ *     summary="Get all publishers",
+ *     @OA\Response(
+ *         response=200,
+ *         description="Array of all publishers",
+ *     ),
+ * )
+ */
 // Route to handle GET request for /publishers
 Flight::route('GET /publishers', function(){
     // Instantiate the PublisherService class
