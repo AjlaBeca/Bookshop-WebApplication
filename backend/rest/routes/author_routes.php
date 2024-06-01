@@ -8,10 +8,15 @@ require_once __DIR__ . "/../services/AuthorService.class.php";
  *     path="/authors",
  *     tags={"authors"},
  *     summary="Get all authors",
+ *     security={{"ApiKey": {}}},
  *     @OA\Response(
  *         response=200,
  *         description="Array of all authors",
  *     ),
+ *    @OA\Response(
+ *        response=401,
+ *        description="Unauthorized"
+ *   )
  * )
  */
 

@@ -11,9 +11,9 @@ class BaseDao {
         $this->table = $table;
         try {
             $this->connection = new PDO(
-                "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT,
-                DB_USER,
-                DB_PASSWORD, [
+                "mysql:host=" . Config::DB_HOST() . ";dbname=" . Config::DB_NAME() . ";port=" . Config::DB_PORT(),
+                Config::DB_USER(),
+                Config::DB_PASSWORD(), [
                     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
                 ]
@@ -23,13 +23,16 @@ class BaseDao {
         }
     }
 
- 
-
     protected function query($query, $params) {
         //echo "SQL Query: $query"; // Log the SQL query
         $statement = $this->connection->prepare($query);
         $statement->execute($params);
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     } 
+
+    protected function query_unique($query, $params) {
+        $results = $this->query($query, $params);
+        return reset($results);
+    }
 
 }

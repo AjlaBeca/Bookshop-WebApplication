@@ -10,10 +10,15 @@ require_once __DIR__ . "/../services/PublisherService.class.php";
  *     path="/publishers",
  *     tags={"publishers"},
  *     summary="Get all publishers",
+ *      security={{"ApiKey": {}}},
  *     @OA\Response(
  *         response=200,
  *         description="Array of all publishers",
  *     ),
+ *  @OA\Response(
+ *        response=401,
+ *        description="Unauthorized"
+ *   )
  * )
  */
 // Route to handle GET request for /publishers

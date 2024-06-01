@@ -261,7 +261,14 @@
     <!--IMPORTANT-->
     <!--<script src="assets/js/spapp.js" defer></script>-->
     <script src="assets/utils/utils.js"></script>
-    <script> Utils.init_spapp();</script>
+    <script> 
+    if (window.localStorage.getItem('user')) {
+      Utils.init_spapp();
+    } else {
+      window.location.href = 'login/index.html';
+    }
+   </script>
     <script src="services/ajax.js" defer></script>
+
   </body>
 </html>

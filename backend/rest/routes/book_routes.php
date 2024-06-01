@@ -13,10 +13,15 @@ require_once __DIR__ . "/../services/BookService.class.php";
  *     path="/books",
  *     tags={"books"},
  *     summary="Get list of books",
+ * security={{"ApiKey": {}}},
  *     @OA\Response(
  *         response=200,
  *         description="Array of all books",
  *     ),
+ *  @OA\Response(
+ *        response=401,
+ *        description="Unauthorized"
+ *   )
  * )
  */
 

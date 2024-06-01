@@ -3,6 +3,10 @@ $(document).ready(function () {
   $.ajax({
       url: "backend/books", // Endpoint for fetching books
       dataType: "json",
+      headers: {
+        "Content-Type": "application/json",
+        'Authentication': JSON.parse(localStorage.getItem("user")).token
+    },
       success: function (data) {
           var mainSlider = $(".main-slider");
 
