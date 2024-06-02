@@ -1,4 +1,18 @@
+#RewriteEngine On
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)$ /webprogramming_bookshop/backend/index.php [QSA,L]
+
+
 RewriteEngine On
+# For local environment
+RewriteCond %{HTTP_HOST} ^localhost$ [NC]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ /webprogramming_bookshop/backend/index.php [QSA,L]
+
+# For production environment
+RewriteCond %{HTTP_HOST} ^oyster-app-yllp3\.ondigitalocean\.app$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /backend/index.php [QSA,L]
