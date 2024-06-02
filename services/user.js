@@ -28,7 +28,7 @@ $(document).ready(function () {
       }).then(function (response) {
       console.log(response);
       if (response.ok) {
-          window.location.href = 'login.html';
+          window.location.href = '../login';
       } else {
           alert('An error occurred. Please try again.');
       }
