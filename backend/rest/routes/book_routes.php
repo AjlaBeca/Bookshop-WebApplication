@@ -36,7 +36,11 @@ Flight::route('GET /books', function(){
 
     // Return the books as JSON
     Flight::json($books);
-    echo '}]';
+    //echo '}]';
+    if (getenv('ENVIRONMENT') === 'local') {
+        echo '}]';
+    }
+    
 });
 
 ?>
