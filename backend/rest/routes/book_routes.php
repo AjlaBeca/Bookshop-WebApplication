@@ -8,6 +8,23 @@ ini_set('display_errors', 1);
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . "/../services/BookService.class.php";
 
+/**
+ * @OA\Get(
+ *     path="/books",
+ *     tags={"books"},
+ *     summary="Get list of books",
+ * security={{"ApiKey": {}}},
+ *     @OA\Response(
+ *         response=200,
+ *         description="Array of all books",
+ *     ),
+ *  @OA\Response(
+ *        response=401,
+ *        description="Unauthorized"
+ *   )
+ * )
+ */
+
 Flight::route('GET /books', function(){
     // Instantiate the BookService class
     $bookService = new BookService();
@@ -19,7 +36,11 @@ Flight::route('GET /books', function(){
 
     // Return the books as JSON
     Flight::json($books);
-    echo '}]';
+    //echo '}]';
+    if (getenv('ENVIRONMENT') === 'local') {
+        echo '}]';
+    }
+    
 });
 
 ?>

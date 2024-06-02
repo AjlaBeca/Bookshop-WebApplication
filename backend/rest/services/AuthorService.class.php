@@ -9,7 +9,7 @@ class AuthorService {
     }
 
     public function fetchAll() {
-        return $this->author_dao->fetchAll();
+        return $this->author_dao->getAuthors();
     }
 }
 ?>

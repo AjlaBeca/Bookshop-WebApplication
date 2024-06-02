@@ -12,6 +12,10 @@ function loadBooks() {
         $.ajax({
             url: "backend/books", // Change to the endpoint for fetching books with tags
             dataType: "json",
+            headers: {
+                "Content-Type": "application/json",
+                'Authentication': JSON.parse(localStorage.getItem("user")).token
+            },
             success: function (data) {
                 console.log("Data loaded from database:", data);
 

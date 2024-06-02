@@ -114,9 +114,6 @@
                     <li class="menu-item">
                       <a href="#contact" class="nav-link">Contact</a>
                     </li>
-                    <li class="menu-item">
-                      <a href="#account" class="nav-link">Account</a>
-                    </li>
                   </ul>
 
                   <div class="hamburger">
@@ -142,7 +139,6 @@
         <section id="featured" data-load="featured.html"></section>
         <section id="books" data-load="books.html"></section>
         <section id="contact" data-load="contact.html"></section>
-        <section id="account" data-load="account.html"></section>
         <section id="book" data-load="book.html"></section>
       </main>
     </section>
@@ -212,10 +208,10 @@
               <h5>My account</h5>
               <ul class="menu-list">
                 <li class="menu-item">
-                  <a href="#account">Log In</a>
+                  <a href="login">Log In</a>
                 </li>
                 <li class="menu-item">
-                  <a href="#account">Sign Up</a>
+                  <a href="register">Sign Up</a>
                 </li>
               </ul>
             </div>
@@ -261,7 +257,14 @@
     <!--IMPORTANT-->
     <!--<script src="assets/js/spapp.js" defer></script>-->
     <script src="assets/utils/utils.js"></script>
-    <script> Utils.init_spapp();</script>
+    <script> 
+    if (window.localStorage.getItem('user')) {
+      Utils.init_spapp();
+    } else {
+      window.location.href = 'login/index.html';
+    }
+   </script>
     <script src="services/ajax.js" defer></script>
+
   </body>
 </html>

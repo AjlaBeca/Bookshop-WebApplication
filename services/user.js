@@ -1,19 +1,4 @@
 $(document).ready(function () {
-  // Function to check if the user is logged in
-  /*function isLoggedIn(callback) {
-        $.ajax({
-            type: "GET",
-            url: "backend/users/login",
-            success: function(response) {
-                callback(response.logged_in);
-            },
-            error: function(xhr, status, error) {
-                console.error("Error checking login status:", error);
-                callback(false);
-            }
-        });
-    }*/
-
   // Handle signup form submission
   $("#signupForm").submit(function (event) {
     event.preventDefault();
@@ -29,66 +14,64 @@ $(document).ready(function () {
       password: password,
     });
 
-    $.ajax({
-      type: "POST",
-      url: "backend/users/add",
-      data: { name: name, surname: surname, email: email, password: password },
-      success: function (response) {
-        console.log("Signup Response:", response);
-        // Attempt to parse JSON response
-        try {
-          var jsonResponse = typeof response === 'string' ? JSON.parse(response) : response;
-          //var jsonResponse = JSON.parse(response);
-          if (jsonResponse.success) {
-            console.log("User signed up successfully!");
-            window.location.href = "#home";
-          } else {
-            console.log("Signup failed: " + jsonResponse.message);
-            alert("User already exists. Please login.");
-          }
-        } catch (error) {
-          console.log("Error parsing JSON response:", error);
-        }
+    fetch('../backend/auth/register', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
       },
-      error: function (xhr, status, error) {
-        console.log("Error: " + xhr.responseText);
-      },
-    });
+      body: JSON.stringify({
+          name: name,
+          surname: surname,
+          email: email,
+          password: password
+      })
+      }).then(function (response) {
+      console.log(response);
+      if (response.ok) {
+          window.location.href = '../login';
+      } else {
+          alert('An error occurred. Please try again.');
+      }
+      }).catch(function (error) {
+          console.log(error);
+          alert(error.message);
+      });
   });
+// Handle login form submission
+$("#loginForm").submit(function (event) {
+  event.preventDefault();
+  var email = $("#loginEmail").val();
+  var password = $("#loginPassword").val();
 
-  $("#loginForm").submit(function (event) {
-    event.preventDefault();
-    var email = $("#loginEmail").val();
-    var password = $("#loginPassword").val();
+  console.log("Login Form Data:", { email: email, password: password });
 
-    console.log("Login Form Data:", { email: email, password: password });
-
-    $.ajax({
-      type: "POST",
-      url: "backend/users/login",
-      data: { email: email, password: password },
-      success: function (response) {
-        console.log("Login Response:", response);
-        // Attempt to parse JSON response
-        try {
-          var jsonResponse = typeof response === 'string' ? JSON.parse(response) : response;
-          //var jsonResponse = JSON.parse(response);
-          if (jsonResponse.success) {
-            console.log("User logged in successfully!");
-            window.location.href = "#home";
-          } else {
-            console.log("Login failed: " + jsonResponse.message);
-            alert("Invalid email or password. Please try again.");
-          }
-        } catch (error) {
-          console.log("Error parsing JSON response:", error);
-        }
-      },
-      error: function (xhr, status, error) {
-        console.log("Error: " + xhr.responseText);
-      },
-    });
+  fetch('../backend/auth/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      email: email,
+      password: password
+    })
+  })
+  .then(function (response) {
+    console.log(response);
+    if (response.ok) {
+      return response.json().then(function (responseData) {
+        console.log('Login Success:', responseData);
+        window.localStorage.setItem('user', JSON.stringify(responseData));
+        window.location.href = 'index.html';
+      });
+    } else {
+      return response.text().then(text => { throw new Error(text) });
+    }
+  })
+  .catch(function (error) {
+    console.error('Login Error:', error);
+    alert('Login failed: ' + error.message);
   });
+});
 
   /* Check if the user is logged in on page load
     isLoggedIn(function(loggedIn) {

@@ -13,6 +13,10 @@ $(document).ready(function () {
       $.ajax({
           url: "backend/books", // Change to the endpoint for fetching books
           dataType: "json",
+          headers: {
+            "Content-Type": "application/json",
+            'Authentication': JSON.parse(localStorage.getItem("user")).token
+        },
           success: function (data) {
               console.log("Data from database loaded");
 
