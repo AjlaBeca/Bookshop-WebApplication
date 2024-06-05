@@ -15,4 +15,4 @@ RewriteRule ^(.*)$ /webprogramming_bookshop/backend/index.php [QSA,L]
 RewriteCond %{HTTP_HOST} ^oyster-app-yllp3\.ondigitalocean\.app$ [NC]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /backend/index.php [QSA,L]
+RewriteRule ^(.*)$ index.php [QSA,L]
